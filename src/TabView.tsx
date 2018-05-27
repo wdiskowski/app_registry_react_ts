@@ -5,12 +5,13 @@ import React from "react";
 import ReleaseInfoTabView from './modules/release-info/ReleaseInfoTabView';
 import LogInfoTabView from './modules/log-info/LogInfoTabView';
 import InterfaceInfoTabView from './modules/interface-info/InterfaceInfoTabView';
-// import MonitoringInfoTabView from './modules/monitoring-info/MonitoringInfoTabView';
+import InvocationStatisticTabView from './modules/invocation-statistic/InvocationStatisticTabView';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { findUrl } from './services/applicationService';
 import { findRegistryData } from './services/registryService';
 import { Registry } from './entities/Registry';
+
 interface Props {
     appId: string,
     targetId: string,
@@ -46,8 +47,8 @@ export default class TabView extends React.Component<Props, State> {
                         <Tab disabled={!this.state.registryData.configInfo}>Config Info</Tab>
                         <Tab disabled={!this.state.registryData.logInfo}>Log Info</Tab>
                         <Tab disabled={!this.state.registryData.interfaceInfo}>Interface Info</Tab>
+                        <Tab disabled={!this.state.registryData.monitoringInfo}>Invocation Statistic</Tab>
                         {/*
-                        <Tab disabled={!this.state.registryData.monitoringInfo}>Monitoring Info</Tab>
                         <Tab disabled={!this.state.registryData.erDiagramm}>ER Diagramm</Tab>
                         <Tab disabled={!this.state.registryData.classDiagramm}>Class Diagramm</Tab>
                         */}
@@ -59,21 +60,21 @@ export default class TabView extends React.Component<Props, State> {
                     </TabPanel>
                     <TabPanel>
                         <ConfigInfoTabView appId={this.props.appId} targetId={this.props.targetId}
-                            url={this.state.baseUrl + (this.state.registryData.configInfo ? this.state.registryData.configInfo : "")} />
+                            url={this.state.baseUrl + (this.state.registryData.configInfo ? this.state.registryData.configInfo : '')} />
                     </TabPanel>
                     <TabPanel>
                         <LogInfoTabView appId={this.props.appId} targetId={this.props.targetId}
-                            url={this.state.baseUrl + (this.state.registryData.logInfo ? this.state.registryData.logInfo : "")} />
+                            url={this.state.baseUrl + (this.state.registryData.logInfo ? this.state.registryData.logInfo : '')} />
                     </TabPanel>
                     <TabPanel>
                         <InterfaceInfoTabView appId={this.props.appId} targetId={this.props.targetId}
-                            url={this.state.baseUrl + (this.state.registryData.interfaceInfo ? this.state.registryData.interfaceInfo : "")} />
+                            url={this.state.baseUrl + (this.state.registryData.interfaceInfo ? this.state.registryData.interfaceInfo : '')} />
+                    </TabPanel>
+                    <TabPanel>
+                        <InvocationStatisticTabView appId={this.props.appId} targetId={this.props.targetId}
+                            baseUrl={this.state.baseUrl} relativePath={(this.state.registryData.monitoringInfo ? this.state.registryData.monitoringInfo : {slowest: '', exceptional: ''})} />
                     </TabPanel>
                     {/*
-                    <TabPanel>
-                        <MonitoringInfoTabView appId={this.props.appId} targetId={this.props.targetId}
-                            baseUrl={this.state.baseUrl} relativePath={(this.state.registryData.monitoringInfo ? this.state.registryData.monitoringInfo : {})} />
-                    </TabPanel>
                     <TabPanel>
                         <ErDiagrammTabView appId={this.props.appId} targetId={this.props.targetId}
                             url={this.state.baseUrl + (this.state.registryData.erDiagramm ? this.state.registryData.erDiagramm : "")} />
