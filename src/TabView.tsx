@@ -1,7 +1,7 @@
 import React from "react";
-// import ErDiagrammTabView from './modules/er-diagramm/ErDiagrammTabView';
-// import ClassDiagrammTabView from './modules/class-diagramm/ClassDiagrammTabView';
- import ConfigInfoTabView from './modules/config-info/ConfigInfoTabView';
+import ErDiagrammTabView from './modules/er-diagramm/ErDiagrammTabView';
+import ClassDiagrammTabView from './modules/class-diagramm/ClassDiagrammTabView';
+import ConfigInfoTabView from './modules/config-info/ConfigInfoTabView';
 import ReleaseInfoTabView from './modules/release-info/ReleaseInfoTabView';
 import LogInfoTabView from './modules/log-info/LogInfoTabView';
 import InterfaceInfoTabView from './modules/interface-info/InterfaceInfoTabView';
@@ -48,10 +48,8 @@ export default class TabView extends React.Component<Props, State> {
                         <Tab disabled={!this.state.registryData.logInfo}>Log Info</Tab>
                         <Tab disabled={!this.state.registryData.interfaceInfo}>Interface Info</Tab>
                         <Tab disabled={!this.state.registryData.monitoringInfo}>Invocation Statistic</Tab>
-                        {/*
                         <Tab disabled={!this.state.registryData.erDiagramm}>ER Diagramm</Tab>
                         <Tab disabled={!this.state.registryData.classDiagramm}>Class Diagramm</Tab>
-                        */}
                         <sup>{this.props.appId} ({this.props.targetId})</sup>
                     </TabList>
                     <TabPanel>
@@ -74,7 +72,6 @@ export default class TabView extends React.Component<Props, State> {
                         <InvocationStatisticTabView appId={this.props.appId} targetId={this.props.targetId}
                             baseUrl={this.state.baseUrl} relativePath={(this.state.registryData.monitoringInfo ? this.state.registryData.monitoringInfo : {slowest: '', exceptional: ''})} />
                     </TabPanel>
-                    {/*
                     <TabPanel>
                         <ErDiagrammTabView appId={this.props.appId} targetId={this.props.targetId}
                             url={this.state.baseUrl + (this.state.registryData.erDiagramm ? this.state.registryData.erDiagramm : "")} />
@@ -83,7 +80,6 @@ export default class TabView extends React.Component<Props, State> {
                         <ClassDiagrammTabView appId={this.props.appId} targetId={this.props.targetId}
                             url={this.state.baseUrl + (this.state.registryData.classDiagramm ? this.state.registryData.classDiagramm : "")} />
                     </TabPanel>
-                    */}
                 </Tabs>
             </div>
         )

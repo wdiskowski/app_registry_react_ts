@@ -20,7 +20,7 @@ interface State {
 }
 
 
-export default abstract class MapTabView extends React.Component<Props, State> {
+export default abstract class AbstractMapTabView extends React.Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
