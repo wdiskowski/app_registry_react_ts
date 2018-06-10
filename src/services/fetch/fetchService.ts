@@ -1,4 +1,4 @@
-import { findReleaseInfoDataMock, FetchMockData } from "./fetchServiceMock";
+import { findDataMock, FetchMockData } from "./fetchServiceMock";
 
 const headers: HeadersInit = { "Content-Type": "application/json" };
 
@@ -9,7 +9,7 @@ const requestInit: RequestInit = { headers, credentials };
 
 export function fetchData(url: string, onSuccess: FetchCallback, fetchMock: FetchMockData) {
     if (process.env.NODE_ENV !== "production") {
-        findReleaseInfoDataMock(url, onSuccess, fetchMock);
+        findDataMock(url, onSuccess, fetchMock);
     } else {
         fetch(url, requestInit)
             .then(resp => resp.json())

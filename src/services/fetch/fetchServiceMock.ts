@@ -1,7 +1,7 @@
 
 export type FetchMockData = (url: string) => any;
 
-export function findReleaseInfoDataMock(url: string, onSuccess: FetchCallback, fetchMock: FetchMockData) {
+export function findDataMock(url: string, onSuccess: FetchCallback, fetchMock: FetchMockData) {
     new Promise(
         (resolve, reject) =>
             window.setTimeout(
