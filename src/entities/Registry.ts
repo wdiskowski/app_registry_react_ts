@@ -1,3 +1,5 @@
+import {Monitoring} from "./Monitoring";
+
 export interface Registry {
     releaseInfo: string,
     configInfo?: string,
@@ -5,8 +7,5 @@ export interface Registry {
     classDiagramm?: string,
     interfaceInfo?: string,
     logInfo?: string,
-    monitoringInfo?: {
-        slowest: string,
-        exceptional: string
-    }
+    monitoringInfo?: Monitoring
 }
