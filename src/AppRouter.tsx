@@ -17,7 +17,7 @@ export const AppRouter: React.StatelessComponent<{}> = () => {
                 <Router history={history}>
                         <div>
                                 <SidebarNavigation sideWidth={SIDEBAR_WIDTH} />
-                                <Route path="/ApplicationRegistryWeb/secure/:appId/:targetId" render={props =>
+                                <Route path="/ApplicationsRegistryWeb/secure/:appId/:targetId" render={props =>
                                         <TabView sideWidth={SIDEBAR_WIDTH} appId={props.match.params.appId} targetId={props.match.params.targetId} />} />
 
                         </div>

@@ -40,7 +40,7 @@ export default class SidebarNavigation extends React.Component<Props, State> {
 
             {app.name === this.state.activeApp && app.targets && app.targets.map(
                 target =>
-                    <Link key={`/${app.name}/${target.name}`} to={`/ApplicationRegistryWeb/secure/${app.name}/${target.name}`}
+                    <Link key={`/${app.name}/${target.name}`} to={`/ApplicationsRegistryWeb/secure/${app.name}/${target.name}`}
                         className={`w3-bar-item w3-button ${target.name === this.state.activeTarget ?
                             'w3-light-blue' : 'w3-white'}`}
                         onClick={() => this.setState({ activeTarget: target.name })}
