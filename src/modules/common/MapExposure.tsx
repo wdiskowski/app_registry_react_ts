@@ -17,7 +17,7 @@ interface State {
 const DEFAULT_KEY_MAX_DISPLAY_SIZE: number = 30;
 const DEFAULT_VALUE_MAX_DISPLAY_SIZE: number = 140;
 
-export default class ConfigInfo extends React.Component<Props, State> {
+export default class MapExposure extends React.Component<Props, State> {
 
 
     constructor(props: Props) {
